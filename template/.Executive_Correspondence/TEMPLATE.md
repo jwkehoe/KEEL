@@ -31,6 +31,8 @@ separator row (`|---|---|`) under a padded header.
 **Date:** [YYYY-MM-DD]
 **Reporting window:** [window start] to [window end] (event horizon: prior EC_Status flag, see `.Executive_Correspondence/.last-status.json`)
 
+---
+
 ## Bottom Line Up Front
 
 **[One pithy sentence — the whole report compressed to a single punchy line a reader gets even if they read nothing else.]**
@@ -73,3 +75,12 @@ separator row (`|---|---|`) under a padded header.
 
 **What's honestly still fake or missing:**
 - [bullet — be specific and honest; this section exists to prevent the BLUF from overselling readiness]
+
+---
+
+## Open Issues
+
+[Pull real current data via `gh issue list --state open` (or the project's equivalent issue tracker), don't narrate from memory - this section goes stale the fastest of anything in the report. Group by priority label if the project uses one; note if a meaningful number carry no priority at all, since that's itself a gap. One line per issue - reference list, not prose.]
+
+**P0**
+- #[N] — [title]
