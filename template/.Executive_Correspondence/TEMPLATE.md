@@ -68,7 +68,7 @@ separator row (`|---|---|`) under a padded header.
 
 ## Current Working Feature Matrix
 
-[Pull the current real table from `00_CONTROL/FUNCTIONAL_MATRIX.md` rather than re-deriving it — copy it faithfully, don't summarize away real/fake distinctions.]
+[Pull the current real table from `00_CONTROL/FUNCTIONAL_MATRIX.md` rather than re-deriving it — copy it faithfully, don't summarize away real/fake distinctions. ALWAYS include the actual table, even if unchanged since the last report - never replace it with a pointer like "see the prior report." These reports get sent standalone as PDF/email attachments; a recipient will not have the prior report sitting next to them.]
 
 | Screen/Area | Real? | Primary action works? | Notes |
 |---|---|---|---|
