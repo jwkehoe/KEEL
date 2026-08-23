@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd {{PROJECT_ABSOLUTE_PATH}} && npx tsx scripts/session-close.ts 2>&1 || true",
+            "timeout": 60,
+            "statusMessage": "Running session close checklist..."
+          }
+        ]
+      }
+    ]
+  }
+}

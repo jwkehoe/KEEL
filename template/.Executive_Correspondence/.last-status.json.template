@@ -1,0 +1,7 @@
+{
+  "lastReportFile": null,
+  "lastReportGeneratedAt": null,
+  "reportingWindowStart": "{{DATE}}T00:00:00-00:00",
+  "reportingWindowEnd": "{{DATE}}T00:00:00-00:00",
+  "note": "Next EC_Status_<date>.md's reporting window should start where reportingWindowEnd left off, not repeat already-reported work. Update this file's reportingWindowStart/End and lastReportGeneratedAt every time a new EC_Status report is generated. Renamed from .last-status.json.template to .last-status.json when the project is scaffolded — the .template suffix exists only so an empty starting file survives being copied as a real template asset."
+}
