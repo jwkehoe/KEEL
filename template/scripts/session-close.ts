@@ -14,7 +14,11 @@ import { join } from "node:path";
 // (4) reports git status: uncommitted work becomes a safety-net PR
 //     suggestion rather than being pushed automatically,
 // (5) reports whether EC_Status (.Executive_Correspondence/) is stale -
-//     commits landed since the last report's reportingWindowEnd,
+//     commits landed since the last report's reportingWindowEnd. This
+//     check itself only prints a finding, but per the close-session skill
+//     (~/.claude/skills/close-session/SKILL.md), staleness found here
+//     should lead directly to actually writing the report as part of
+//     closing the session, not just flagging it and stopping,
 // (6) reports deployment status for origin/main, if this project deploys
 //     somewhere with a native GitHub status-check integration (Vercel,
 //     Netlify, Railway, etc.) - remove or adapt this check if the project

@@ -33,7 +33,12 @@ separator row (`|---|---|`) under a padded header.
 
 ## Bottom Line Up Front
 
-[2-4 sentences. What's the real state, in plain language, for the specific goal this report exists to inform. Lead with what's actually working. Name the single biggest gap plainly — don't bury it. End with an honest time/effort estimate to close that gap, if known.]
+**[One pithy sentence — the whole report compressed to a single punchy line a reader gets even if they read nothing else.]**
+
+1. [State the real state in plain language, for the specific goal this report exists to inform. Lead with what's actually working.]
+2. [Name the single biggest gap plainly — don't bury it.]
+3. [Additional points as needed — each its own numbered line, not folded into one paragraph.]
+4. [End with an honest time/effort estimate to close the biggest gap, if known, or the specific decision needed next.]
 
 ---
 
