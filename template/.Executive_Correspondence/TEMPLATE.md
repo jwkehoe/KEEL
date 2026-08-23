@@ -38,7 +38,12 @@ separator row (`|---|---|`) under a padded header.
 1. [State the real state in plain language, for the specific goal this report exists to inform. Lead with what's actually working.]
 2. [Name the single biggest gap plainly — don't bury it.]
 3. [Additional points as needed — each its own numbered line, not folded into one paragraph.]
-4. [End with an honest time/effort estimate to close the biggest gap, if known, or the specific decision needed next.]
+
+**Critical Path to [stated goal]:**
+
+[A numbered, dependency-ordered list — only numbered because it IS a real sequence. Each item: one concrete action, who owns it, and why it's a blocker. Lives in the BLUF, not at the bottom, so the next-actions are the last thing a reader sees, not something they only reach if they read the whole report.]
+
+1. [Action] — [owner] — [why it blocks the goal]
 
 ---
 
@@ -68,11 +73,3 @@ separator row (`|---|---|`) under a padded header.
 
 **What's honestly still fake or missing:**
 - [bullet — be specific and honest; this section exists to prevent the BLUF from overselling readiness]
-
----
-
-## Critical Path to [stated goal]
-
-[A numbered, dependency-ordered list — only numbered because it IS a real sequence. Each item: one concrete action, who owns it, and why it's a blocker.]
-
-1. [Action] — [owner] — [why it blocks the goal]
