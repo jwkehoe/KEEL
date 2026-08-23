@@ -1,0 +1,46 @@
+name: CI
+
+# Adapt this to the real stack once chosen. This skeleton assumes a
+# Node/npm project with typecheck/lint/test/build scripts in package.json
+# (matching Thalam's pattern) - swap the run commands for whatever this
+# project actually uses.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "26"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+# If deploying to a host with its own GitHub status-check integration
+# (Vercel, Netlify, Railway, etc.), that check runs independently of this
+# workflow - don't assume `npm run build` succeeding here means the real
+# deployment succeeded. See scripts/session-close.ts's deployment-status
+# check for reading that native status instead of re-implementing it here.

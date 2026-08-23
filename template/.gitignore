@@ -1,0 +1,10 @@
+.DS_Store
+*.tmp
+*.bak
+~$*
+.env
+.env*.local
+node_modules/
+.claude/
+/.Executive_Correspondence/
+98_WORKING/

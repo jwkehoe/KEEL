@@ -1,0 +1,34 @@
+# CLAUDE.md
+
+Project conventions and durable working rules for {{PROJECT_NAME}}. Read `00_CONTROL/PROJECT_INDEX.md` for full document navigation; this file is for agent-facing conventions that don't belong in product docs.
+
+## Stack
+
+Fill in once decided: framework, hosting, database, auth, and any other locked infrastructure choices. Keep this current — it's the fastest way for a new agent session to know what it's actually working with.
+
+## Supply Chain / Dependencies
+
+- Pin dependency versions exact where the ecosystem supports it; avoid `^`/`~` ranges once the project is past early prototyping.
+- Never run an automated "fix" that suggests breaking downgrades without triaging manually first.
+- Before adding any new dependency, confirm it's actually imported by app code.
+- Record dependency and audit decisions in a durable doc (e.g. `docs/SUPPLY_CHAIN_SECURITY.md`) and `00_CONTROL/RISK_REGISTER.md`, not just in commit messages.
+
+## Change Tracking
+
+- `CHANGELOG.md` at repo root is the running flight recorder for notable changes, decisions, and their rationale across sessions. Append an entry there for any non-trivial change — git history has the diffs, but not always the *why*.
+- `00_CONTROL/RISK_REGISTER.md` and `00_CONTROL/DECISION_PATH.md` carry their own "Last updated" note; keep it current when editing them. Both use the strikethrough-on-close convention documented in each file — resolved entries get struck through in place, never deleted, so an automated session-diff can detect closures.
+- `00_CONTROL/time_log.csv` tracks dev/PM/idle time derived from session transcripts (schema in `00_CONTROL/TIME_LOG_SCHEMA.md`).
+- `00_CONTROL/reports/` holds append-only per-session close-out reports — one file per session, a new "Turn @ <timestamp>" section appended every turn rather than a new file per turn. Built on the BLACKBOX pattern (`~/Development/BLACKBOX`); this project's wiring is in `scripts/session-close.ts` and `scripts/generate-executive-report.ts`, fired by the `Stop` hook in `.claude/settings.json` (local, gitignored).
+- `.Executive_Correspondence/` (local, gitignored) holds founder/stakeholder-facing status reports — `EC_Status_<YYYY-MM-DD>.md`, built from `TEMPLATE.md` in the same directory. `.last-status.json` is the event-horizon flag: it records the prior report's `reportingWindowEnd`, which becomes the next report's `reportingWindowStart`. These reports are NOT generated automatically — the `close-session` skill only flags staleness; a real report needs a human to ask for it, since it needs judgment and evidence-gathering that can't be mechanically produced.
+
+## Working Rules
+
+- Don't add features, abstractions, or fixes beyond what's asked.
+- Prefer editing existing docs/specs over creating new ones unless a new document is genuinely warranted.
+- Decide and record here: solo-developer direct-to-main workflow, or PR-reviewed workflow? Update this section once decided — don't leave it ambiguous.
+- Decide and record here: is there a shared dev/staging database risk like Thalam's ("no local dev server against this database")? If so, document the isolation rule explicitly, the same way, before it causes drift.
+- Decide and record here: is the current deployed environment (if any) production, or dev/staging? Don't let this stay implicit — it changes how much data-integrity caution applies.
+
+## Session Close
+
+A `close-session` skill exists globally (`~/.claude/skills/close-session/SKILL.md`) — invoke it (or say "close session") to run the judgment-half checklist: uncommitted/unpushed work, changelog staleness, decision/risk doc status, stakeholder-report staleness, deployment status. It discovers this project's actual conventions rather than assuming Thalam's or any other project's specifics — but the docs/paths above should exist for it to find something.
